@@ -11,12 +11,18 @@ export default class Job {
     readonly companyId: string,
     readonly title: string,
     readonly description: string,
-    readonly status: JobStatus,
+    private status: JobStatus,
   ) {}
 
   static create(companyId: string, title: string, description: string) {
     const jobId = crypto.randomUUID();
     const status = JobStatus.Open;
     return new Job(jobId, companyId, title, description, status);
+  }
+  close() {
+    this.status = JobStatus.Closed;
+  }
+  getStatus() {
+    return this.status;
   }
 }
