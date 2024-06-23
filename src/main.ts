@@ -1,7 +1,7 @@
 import createServer from '@connections/server';
 import log from '@shared/utils/logger';
-import pgDB from './application/jobs/infra/database';
 import connectToPostgres from './connections/postgres_db';
+import pgDB from './application/infra/database';
 
 const port = process.env.PORT || 8000;
 

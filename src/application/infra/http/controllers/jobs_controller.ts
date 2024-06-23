@@ -1,10 +1,10 @@
 import log from '@/shared/utils/logger';
 import * as express from 'express';
 import {} from '../../repository/job_repository';
-import ListJobsUseCase from '@/application/jobs/usecase/list_jobs_usecase';
+import ListJobsUseCase from '@/application/usecase/list_jobs_usecase';
 import { BaseController } from './base_controller';
 import { JobsInput } from '../validation/jobs_validator';
-import Job from '@/application/jobs/domain/models/job_model';
+import Job from '@/application/domain/models/job_model';
 
 export default class JobsController extends BaseController {
   private listJobsUseCase: ListJobsUseCase;

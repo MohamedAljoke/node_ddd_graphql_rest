@@ -1,8 +1,8 @@
 import log from '@/shared/utils/logger';
 import { BaseController } from './base_controller';
 import { JobsInput } from '../validation/jobs_validator';
-import Job from '@/application/jobs/domain/models/job_model';
-import CreateJobUseCase from '@/application/jobs/usecase/create_job_usecase';
+import CreateJobUseCase from '@/application/usecase/create_job_usecase';
+import Job from '@/application/domain/models/job_model';
 
 export default class CompanyController extends BaseController {
   private createJobUseCase: CreateJobUseCase;

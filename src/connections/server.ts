@@ -5,7 +5,7 @@ import http from 'http';
 
 import { expressMiddleware } from '@apollo/server/express4';
 import getApolloServer, { apolloContext } from './graphql';
-import apiRoutes from '@/application/jobs/infra/http/routes';
+import apiRoutes from '@/application/infra/http/routes';
 
 async function createServer() {
   const app = express();

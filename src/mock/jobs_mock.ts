@@ -1,4 +1,4 @@
-import Job, { JobStatus } from '@/application/jobs/domain/models/job_model';
+import Job, { JobStatus } from '@/application/domain/models/job_model';
 
 const mockJobs: Job[] = [
   new Job(

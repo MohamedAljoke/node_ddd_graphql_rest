@@ -1,4 +1,4 @@
-import pgDB from '@/application/jobs/infra/database';
+import pgDB from '@/application/infra/database';
 import log from '@/shared/utils/logger';
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));

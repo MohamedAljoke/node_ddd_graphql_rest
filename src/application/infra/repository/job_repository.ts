@@ -1,6 +1,6 @@
 import mockJobs from '@/mock/jobs_mock';
-import Job from '../../domain/models/job_model';
 import { IDatabaseConnection } from '../database/postgress_db_connection';
+import Job from '@/application/domain/models/job_model';
 
 export interface IJobRepository {
   fetchJobs(): Promise<Job[]>;

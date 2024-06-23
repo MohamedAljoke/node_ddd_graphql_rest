@@ -2,7 +2,7 @@ import http from 'http';
 import { ApolloServer } from '@apollo/server';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer';
-import { rawSchema } from '@/application/jobs/infra/graphql';
+import { rawSchema } from '@/application/infra/graphql';
 
 const schema = makeExecutableSchema({
   typeDefs: rawSchema.typeDefs,
