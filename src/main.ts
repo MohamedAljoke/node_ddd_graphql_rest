@@ -1,6 +1,7 @@
 import createServer from '@connections/server';
 import log from '@shared/utils/logger';
 import { PgPromiseAdapter } from './application/jobs/infra/database/postgres_db_connection';
+import pgDB from './application/jobs/infra/database';
 
 const port = process.env.PORT || 8000;
 
@@ -12,7 +13,6 @@ async function startServer() {
       httpServer.listen({ port: port }, resolve);
     });
     log.info(`connecting to postgres db`);
-    const pgDB = new PgPromiseAdapter();
     pgDB.connect();
     process.on('SIGINT', shutdown);
     process.on('SIGTERM', shutdown);

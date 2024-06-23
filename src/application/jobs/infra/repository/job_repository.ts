@@ -9,8 +9,16 @@ export interface IJobRepository {
 export class JobRepositoryDatabase implements IJobRepository {
   constructor(readonly dbConnection: IDatabaseConnection) {}
   async fetchJobs(): Promise<Job[]> {
-    await this.dbConnection.query('select * ', []);
-    const jobs = mockJobs; //todo: get from db
+    const jobsDB = await this.dbConnection.query('SELECT * FROM jobs;', []);
+    const jobs = jobsDB.map((job) => {
+      return new Job(
+        job.id,
+        job.company_id,
+        job.title,
+        job.description,
+        job.status,
+      );
+    });
     return jobs;
   }
 }
