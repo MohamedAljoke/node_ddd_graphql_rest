@@ -10,6 +10,7 @@ This application is designed to control job applications, providing both a RESTf
 - **Domain-Driven Design**: The application structure is based on DDD principles.
 - **Design Patterns**: Uses various design patterns to maintain clean and manageable code.
 - **TypeScript**: The application is written entirely in TypeScript for type safety and better developer experience.
+- **Vitest**: The application uses Vitest for testing to ensure code quality and reliability.
 
 ## Installation
 
