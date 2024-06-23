@@ -15,7 +15,7 @@ export class JobRepositoryDatabase implements IJobRepository {
     INSERT INTO jobs (company_id, title, description, status) 
     VALUES ($1, $2, $3, $4) 
     RETURNING *;
-  `;
+    `;
     const values = [companyId, title, description, status];
     const jobDB = (await this.dbConnection.query(query, values))[0];
     return new Job(
