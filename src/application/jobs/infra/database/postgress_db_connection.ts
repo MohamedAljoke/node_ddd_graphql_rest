@@ -9,14 +9,18 @@ export interface IDatabaseConnection {
   getConnection(): pgp.IDatabase<{}, pg.IClient>;
   ping(): Promise<void>;
 }
-const dbStr = process.env.dbUri;
+const dbStr =
+  process.env.dbUri || 'postgres://postgres:123456@localhost:5432/app';
 export class PgPromiseAdapter implements IDatabaseConnection {
   connection: pgp.IDatabase<{}, pg.IClient>;
   constructor() {}
 
-  connect() {
-    this.connection = pgp()(dbStr);
-    this.ping();
+  async connect() {
+    if (!this.connection) {
+      this.connection = pgp()(dbStr);
+    }
+
+    await this.ping();
   }
   getConnection(): pgp.IDatabase<{}, pg.IClient> {
     if (this.connection) {

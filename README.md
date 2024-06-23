@@ -4,9 +4,9 @@ This application is designed to control job applications, providing both a RESTf
 
 ## Features
 
-- **RESTful API**: The server runs on port 8000.
-- **GraphQL Server**: Accessible at `http://localhost:8000/graphql`.
-- **Hasura**: Utilizes Hasura for instant GraphQL API generation and management over PostgreSQL.
+- **RESTful API**: The server runs on port <http://localhost:8000/api/v1/version>.
+- **GraphQL Server**: Accessible at <http://localhost:8000/graphql>.
+- **Hasura**: Utilizes Hasura for instant GraphQL API generation and management over PostgreSQL the password is youradminsecretkey <http://localhost:8080>.
 - **Domain-Driven Design**: The application structure is based on DDD principles.
 - **Design Patterns**: Uses various design patterns to maintain clean and manageable code.
 - **TypeScript**: The application is written entirely in TypeScript for type safety and better developer experience.

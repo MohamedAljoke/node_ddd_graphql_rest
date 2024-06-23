@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start:dev": "tsx watch -r tsconfig-paths/register src/main.ts",
+    "start:dev": "tsx watch -r tsconfig-paths/register --env-file=.env src/main.ts",
     "start": "node dist/main.js",
     "test": "vitest",
     "coverage": "vitest run --coverage --passWithNoTests",
