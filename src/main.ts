@@ -1,7 +1,7 @@
 import createServer from '@connections/server';
 import log from '@shared/utils/logger';
-import { PgPromiseAdapter } from './application/jobs/infra/database/postgres_db_connection';
 import pgDB from './application/jobs/infra/database';
+import { PgPromiseAdapter } from './application/jobs/infra/database/postgress_db_connection';
 
 const port = process.env.PORT || 8000;
 
@@ -24,7 +24,7 @@ async function startServer() {
 
 startServer();
 
-async function shutdown(pgDB: PgPromiseAdapter) {
+async function shutdown() {
   try {
     await pgDB.close();
     log.info('Database connection closed');

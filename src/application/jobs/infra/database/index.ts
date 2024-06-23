@@ -1,4 +1,4 @@
-import { PgPromiseAdapter } from './postgres_db_connection';
+import { PgPromiseAdapter } from './postgress_db_connection';
 
 const pgDB = new PgPromiseAdapter();
 export default pgDB;
