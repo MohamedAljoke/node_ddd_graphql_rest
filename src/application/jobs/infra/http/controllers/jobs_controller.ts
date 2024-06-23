@@ -15,7 +15,6 @@ export default class JobsController extends BaseController {
 
   async fetchJobs() {
     try {
-      const dto: JobsInput = this.req.body as JobsInput;
       const jobs = await this.listJobsUseCase.execute();
       return this.ok<Job[]>(this.res, jobs);
     } catch (e) {

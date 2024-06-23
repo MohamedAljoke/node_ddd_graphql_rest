@@ -1,11 +1,7 @@
 import { JobStatus } from '@/application/jobs/domain/models/job_model';
 import zod, { nativeEnum, object, string, TypeOf } from 'zod';
 
-const jobsObject = object({
-  companyId: zod
-    .string()
-    .min(1, { message: 'job must belong to a company' })
-    .max(30, { message: 'Error name is too long' }),
+export const jobsObject = object({
   title: zod
     .string()
     .min(1, { message: 'Error title is required' })
@@ -14,7 +10,7 @@ const jobsObject = object({
     .string()
     .min(1, { message: 'Error description is required' })
     .max(254, { message: 'Error description is too long' }),
-  status: nativeEnum(JobStatus, { message: 'Invalid job status' }),
+  // status: nativeEnum(JobStatus, { message: 'Invalid job status' }),
 });
 export const jobsBodySchema = zod.object({
   body: jobsObject,
