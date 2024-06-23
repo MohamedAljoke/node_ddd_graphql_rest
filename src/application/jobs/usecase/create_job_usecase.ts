@@ -5,7 +5,7 @@ export default class CreateJobUseCase {
   constructor(readonly jobRepository: IJobRepository) {}
   async execute(job: Job): Promise<Job> {
     //TODO: validate if company does not exist
-    const jobs = await this.jobRepository.createJob(job);
-    return jobs[0];
+    const jobRep = await this.jobRepository.createJob(job);
+    return jobRep;
   }
 }

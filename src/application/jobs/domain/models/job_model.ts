@@ -1,8 +1,8 @@
 export enum JobStatus {
-  Open = 'Open',
-  Closed = 'Closed',
-  InProgress = 'InProgress',
-  OnHold = 'OnHold',
+  Open = 'open',
+  Closed = 'closed',
+  InProgress = 'in_progress',
+  OnHold = 'on_hold',
 }
 
 export default class Job {

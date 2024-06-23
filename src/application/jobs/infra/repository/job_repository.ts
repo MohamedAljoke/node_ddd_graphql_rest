@@ -17,7 +17,7 @@ export class JobRepositoryDatabase implements IJobRepository {
     RETURNING *;
   `;
     const values = [companyId, title, description, status];
-    const jobDB = await this.dbConnection.query(query, values);
+    const jobDB = (await this.dbConnection.query(query, values))[0];
     return new Job(
       jobDB.id,
       jobDB.company_id,

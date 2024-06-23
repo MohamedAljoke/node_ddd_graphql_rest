@@ -1,5 +1,4 @@
-import { JobStatus } from '@/application/jobs/domain/models/job_model';
-import zod, { nativeEnum, object, string, TypeOf } from 'zod';
+import zod, { object, TypeOf } from 'zod';
 
 export const jobsObject = object({
   title: zod
