@@ -41,7 +41,7 @@ async function createServer() {
   );
 
   //rest api
-  app.use('/api', apiRoutes);
+  app.use('/api/v1', apiRoutes);
 
   //graphql
   const apolloServer = await getApolloServer(httpServer);
