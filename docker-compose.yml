@@ -1,6 +1,17 @@
 version: '3.9'
 
 services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongo-data:/data/db
   db:
     image: postgres:14
     container_name: db
@@ -24,7 +35,6 @@ services:
       timeout: 60s
       retries: 5
       start_period: 80s
-
   api:
     build:
       context: .
@@ -33,8 +43,12 @@ services:
     command: 'npm run start:dev'
     environment:
       dbUri: 'postgres://postgres:123456@db:5432/app'
+      dbMongoUri: 'mongodb://root:password@mongodb:27017/'
     ports:
       - '8000:8000'
+    depends_on:
+      - mongodb
+      - db
   hasura:
     image: hasura/graphql-engine:v2.16.1
     container_name: hasura
@@ -49,5 +63,22 @@ services:
       HASURA_GRAPHQL_ENABLE_CONSOLE: 'true' # enable GraphQL console
     volumes:
       - ./hasura_metadata_2024_06_23_03_09_01_420.json:/hasura-metadata/hasura_metadata.json
+  localstack:
+    image: localstack/localstack:latest
+    ports:
+      - '4566:4566'
+    environment:
+      - services=s3,sqs,lambda,logs,cloudformation,ec2
+      - DEFAULT_REGION=us-east-1
+      - LAMBDA_EXECUTOR=docker
+      - LAMBDA_REMOTE_DOCKER=true
+      - LAMBDA_REMOVE_CONTAINERS=true
+      - DATA_DIR=/tmp/localstack/data
+      - DEBUG=1
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - '${TMPDIR:-/tmp/localstack}:/tmp/localstack'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+
 volumes:
   postgres_data:

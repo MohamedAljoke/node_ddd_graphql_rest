@@ -51,6 +51,7 @@
     "graphql-tag": "^2.12.6",
     "helmet": "^7.1.0",
     "lodash.mergewith": "^4.6.2",
+    "mongoose": "^8.4.3",
     "pg-promise": "^11.8.0",
     "pino": "^9.2.0",
     "pino-pretty": "^11.2.1",

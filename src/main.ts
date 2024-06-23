@@ -2,6 +2,7 @@ import createServer from '@connections/server';
 import log from '@shared/utils/logger';
 import connectToPostgres from './connections/postgres_db';
 import pgDB from './application/infra/database';
+import connectToMongo from './connections/mongoose_db';
 
 const port = process.env.PORT || 8000;
 
