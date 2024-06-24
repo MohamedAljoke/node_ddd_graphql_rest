@@ -1,8 +1,22 @@
 node_modules
+
 dist
+
 build
+
 coverage
+
+
+# Crash log files
+crash.log
+
+# Ignore .env files
 .env
+
+# Ignore other sensitive files
+*.pem
+*.key
+
 # Local .terraform directories
 **/.terraform/*
 
