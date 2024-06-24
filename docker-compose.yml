@@ -67,6 +67,9 @@ services:
     ports:
       - '4566:4566'
     environment:
+      - AWS_ACCESS_KEY_ID=teste
+      - AWS_SECRET_ACCESS_KEY=teste
+      - EDGE_PORT=4566
       - services=s3,sqs,lambda,logs,cloudformation,ec2
       - DEFAULT_REGION=us-east-1
       - LAMBDA_EXECUTOR=docker
@@ -81,3 +84,5 @@ services:
 
 volumes:
   postgres_data:
+  localstack-data:
+    name: localstack-data
