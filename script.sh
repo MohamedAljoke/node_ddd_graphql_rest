@@ -1,5 +1,5 @@
 #!/bin/bash
 
 terraform init
-
-terraform apply
+terraform plan
+terraform apply --auto-approve
