@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "sa-east-1"
+  region = "us-east-1"
   # localstack configs
   access_key                  = "teste"
   secret_key                  = "teste"
@@ -24,11 +24,12 @@ provider "aws" {
   }
 }
 
+# aws --endpoint-url=http://localhost:4566 ec2 describe-instances
 resource "aws_instance" "app_server" {
   ami           = "ami-830c94e3"
   instance_type = "t2.micro"
 
   tags = {
-    Name = "ExampleAppServerInstance"
+    Name = "MyNodeDDDApp"
   }
 }
