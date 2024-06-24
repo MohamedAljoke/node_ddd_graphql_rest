@@ -14,6 +14,7 @@ This application is designed to control job applications, providing both a RESTf
 - **Postgres/Mongoose**: Supports both PostgreSQL and MongoDB (using Mongoose) connections for flexible data management.
 - **LocalStack**: Uses LocalStack for development mode instead of AWS, providing a local AWS cloud stack for testing and development
 - **Terraform**: Implements Infrastructure as Code (IaC) with Terraform for provisioning and managing infrastructure resources.
+- **CI**: Github actions for CI TODO: add CD
 
 ## Installation
 
