@@ -8,3 +8,8 @@ terraform {
   required_version = ">= 1.2.0"
 }
 
+module "nodedddVPC" {
+  source = "./modules/vpc"
+
+  vpc_tags = var.vpc_tags
+}
